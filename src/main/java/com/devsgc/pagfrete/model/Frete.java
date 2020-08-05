@@ -1,15 +1,46 @@
 package com.devsgc.pagfrete.model;
 
-public class Frete {
-    private int id;
-    private int numeroPedido;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.Date;
 
-    public int getNumeroPedido() {
-        return numeroPedido;
+@Entity
+public class Frete {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Long pedidoNumero;
+    private Long clienteId;
+    private double valorSugerido;
+    private double ValorPago;
+    private String status;
+    private Date dataSaida;
+
+    public String getStatus() {
+        return status;
     }
 
-    public void setNumeroPedido(int numeroPedido) {
-        this.numeroPedido = numeroPedido;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getDataSaida() {
+        return dataSaida;
+    }
+
+    public void setDataSaida(Date dataSaida) {
+        this.dataSaida = dataSaida;
+    }
+
+    public Long getPedidoNumero() {
+        return pedidoNumero;
+    }
+
+    public void setPedidoNumero(Long pedidoNumero) {
+        this.pedidoNumero = pedidoNumero;
     }
 
     public Long getClienteId() {
@@ -20,15 +51,11 @@ public class Frete {
         this.clienteId = clienteId;
     }
 
-    private Long clienteId;
-    private double valorSugerido;
-    private double ValorPago;
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -9,8 +9,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @RestController
-@RequestMapping("/cliente")
+@RequestMapping("/clientes")
 public class ClienteController {
 
     private final ClienteRepository clienteRepository;
@@ -36,8 +39,14 @@ public class ClienteController {
         cli.setEndereco(enderecoSalvo);
 
          */
+        cli.setDataInclusao(new java.sql.Date(System.currentTimeMillis()));
         return new ResponseEntity<>(clienteRepository.save(cli), HttpStatus.OK);
     }
 
+    @DeleteMapping(value = "/{id}")
+    ResponseEntity<?> deletar(@PathVariable("id") int id){
+        clienteRepository.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 }

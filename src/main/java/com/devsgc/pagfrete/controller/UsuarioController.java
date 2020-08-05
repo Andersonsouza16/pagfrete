@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.swing.text.html.parser.Entity;
+import java.util.Date;
 import java.util.Optional;
 
 @RestController
@@ -28,6 +29,7 @@ public class UsuarioController {
     @CrossOrigin
     @PostMapping
     public @ResponseBody ResponseEntity<?> salvar(@RequestBody Usuario usuario){
+
         return new ResponseEntity<>(usuarioRepository.save(usuario), HttpStatus.CREATED);
     }
 
@@ -36,5 +38,11 @@ public class UsuarioController {
     public @ResponseBody ResponseEntity<?> atualizar(@RequestBody Usuario usuario){
 
         return new ResponseEntity<>(usuarioRepository.save(usuario), HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    ResponseEntity<?> deletar(@PathVariable("id") int id){
+        usuarioRepository.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

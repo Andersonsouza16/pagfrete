@@ -8,9 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path="/teste")
+@RequestMapping(path="/testes")
 public class TesteController {
-
+/*
     private final TesteRepository testeTepository;
 
     @Autowired
@@ -18,14 +18,16 @@ public class TesteController {
         this.testeTepository = testeTepository;
     }
 
-    /*
+ */
+
+
     @GetMapping
     public String listarTodos(){
         return "teste 123";
     }
-    */
 
 
+/*
     @GetMapping
     public @ResponseBody Iterable<Teste> listarTodos(){
         return testeTepository.findAll();
@@ -35,4 +37,6 @@ public class TesteController {
     public @ResponseBody ResponseEntity<?> addTeste(@RequestBody Teste t){
         return new ResponseEntity<>(testeTepository.save(t), HttpStatus.OK);
     }
+
+ */
 }
