@@ -14,8 +14,9 @@ public class Frete {
     private Long id;
     private Long pedidoNumero;
     private Long clienteId;
+    private Long usuarioInclusaoId;
     private double valorSugerido;
-    private double ValorPago;
+    private double valorPago;
     private String status;
     private Date dataSaida;
 
@@ -33,6 +34,14 @@ public class Frete {
 
     public void setDataSaida(Date dataSaida) {
         this.dataSaida = dataSaida;
+    }
+
+    public Long getUsuarioInclusaoId() {
+        return usuarioInclusaoId;
+    }
+
+    public void setUsuarioInclusaoId(Long usuarioInclusaoId) {
+        this.usuarioInclusaoId = usuarioInclusaoId;
     }
 
     public Long getPedidoNumero() {
@@ -68,11 +77,11 @@ public class Frete {
     }
 
     public double getValorPago() {
-        return ValorPago;
+        return valorPago;
     }
 
     public void setValorPago(double valorPago) {
-        ValorPago = valorPago;
+        this.valorPago = valorPago;
     }
 
     public Frete() {

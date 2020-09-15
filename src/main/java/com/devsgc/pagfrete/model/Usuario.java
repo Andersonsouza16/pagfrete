@@ -1,9 +1,6 @@
 package com.devsgc.pagfrete.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Usuario {
@@ -14,6 +11,10 @@ public class Usuario {
     private String login;
     private String senha;
     private int nivel;
+
+    @OneToOne
+    @JoinColumn(name = "tipo_usuario_id")
+    private TipoUsuario tipoUsuario;
 
     public Usuario() {
     }
@@ -44,6 +45,14 @@ public class Usuario {
 
     public int getNivel() {
         return nivel;
+    }
+
+    public TipoUsuario getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 
     public void setNivel(int nivel) {
