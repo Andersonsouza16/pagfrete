@@ -7,24 +7,25 @@ public class Empresa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String nome;
     private String cnpj;
     private String descricao;
 
     @OneToOne
-    @JoinColumn(name = "id")
+    //@JoinColumn(name = "id")
     private TipoEmpresa tipoEmpresa;
 
     //private TabelaFrete tabelaFrete;
 
+    public Empresa(){}
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

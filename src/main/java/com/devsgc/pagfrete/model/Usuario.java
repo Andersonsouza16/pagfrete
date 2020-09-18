@@ -10,11 +10,21 @@ public class Usuario {
     private int id;
     private String login;
     private String senha;
-    private int nivel;
+    private String nome;
 
     @OneToOne
-    @JoinColumn(name = "tipo_usuario_id")
     private TipoUsuario tipoUsuario;
+
+    @OneToOne
+    private Empresa empresa;
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
 
     public Usuario() {
     }
@@ -43,8 +53,8 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public int getNivel() {
-        return nivel;
+    public String getNome() {
+        return nome;
     }
 
     public TipoUsuario getTipoUsuario() {
@@ -55,7 +65,7 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }
